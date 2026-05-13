@@ -79,3 +79,4 @@ Modelo de plataforma de streaming com planos, conteúdos, filmes, séries e aute
 
 ## Links
 https://github.com/lusca04/Checkpoint-3---Engenharia-de-Software.git
+https://whimsical.com/checkpoint-3-engenharia-de-software-Mhe3fp7DXwvVaNtN1FZiyi
