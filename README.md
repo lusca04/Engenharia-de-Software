@@ -30,7 +30,7 @@ python aula-08-classes/streaming_netflix.py
 ## Instalação
 
 ```bash
-git clone https://github.com/lusca04/Checkpoint-3---Engenharia-de-Software.git
+git clone https://github.com/lusca04/Engenharia-de-Software.git
 cd Checkpoint-3---Engenharia-de-Software
 ```
 
@@ -135,7 +135,7 @@ Sistema 2 — **Netflix**: `Plataforma`, `Catalogo`, `Filme`, `Usuario`, `Avalia
 
 | Recurso | Link |
 |---|---|
-| 🐙 GitHub | [Checkpoint-3---Engenharia-de-Software](https://github.com/lusca04/Checkpoint-3---Engenharia-de-Software.git) |
+| 🐙 GitHub | [Engenharia-de-Software](https://github.com/lusca04/Engenharia-de-Software.git) |
 | 📌 Checkpoint 3 | [Whimsical](https://whimsical.com/checkpoint-3-engenharia-de-software-Mhe3fp7DXwvVaNtN1FZiyi) |
 | Aula 03 | [Whimsical](https://whimsical.com/aula-es-03-requisitos-funcionais-vs-nao-funcionais-VeRe2FAFiQkj7bRSeUU7km) |
 | Aula 04 | [Whimsical](https://whimsical.com/aula-es-04-documento-de-especificacao-de-requisitos-de-software--YChfpWcG8f9w7qx2uC2wLH) |
