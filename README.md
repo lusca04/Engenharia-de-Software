@@ -1,4 +1,4 @@
-﻿# 📚 Portfólio – Engenharia de Software | FIAP 2026
+﻿# Portfólio – Engenharia de Software | FIAP 2026
 
 ## Sobre este repositório
 
@@ -39,12 +39,16 @@ cd Engenharia-de-Software
 
 ## Exercícios por Aula
 
+---
+
 ### Aula 02 – Levantamento de Requisitos e Técnicas de Elicitação
 
 - Código: [`aula-02-conversor/conversor_temperatura.py`](aula-02-conversor/conversor_temperatura.py)
 - Saída: [`aula-02-conversor/aula02-output.png`](aula-02-conversor/aula02-output.png)
 
 Conversor de temperatura com validação de entrada e conversão entre Celsius, Fahrenheit e Kelvin, aplicando técnicas de elicitação de requisitos.
+
+---
 
 ### Aula 03 – Requisitos Funcionais vs. Não-Funcionais
 
