@@ -78,5 +78,36 @@ Modelo de plataforma de streaming com planos, conteúdos, filmes, séries e aute
 
 
 ## Links
+
+# Github
 https://github.com/lusca04/Checkpoint-3---Engenharia-de-Software.git
+
+# Checkpoint 3
 https://whimsical.com/checkpoint-3-engenharia-de-software-Mhe3fp7DXwvVaNtN1FZiyi
+
+# Aula 3
+https://whimsical.com/aula-es-03-requisitos-funcionais-vs-nao-funcionais-VeRe2FAFiQkj7bRSeUU7km
+
+# Aula 4
+https://whimsical.com/aula-es-04-documento-de-especificacao-de-requisitos-de-software--YChfpWcG8f9w7qx2uC2wLH
+
+# Aula 5
+https://whimsical.com/aula-es-05-introducao-a-uml-e-diagramas-de-casos-de-uso-2xASW5FbDUd4n7R1hPMdbZ
+
+# Aula 6
+https://whimsical.com/aula-es-06-diagramas-de-atividades-para-processos-de-negocio-TGccPNXDmV16wG3EFemG1M
+
+# Aula 7
+https://whimsical.com/aula-es-07-diagramas-de-sequencia-interacao-entre-objetos-Q6mdtrvJoAevsCs3LQnYER
+
+# Aula 8
+https://whimsical.com/aula-es-08-diagramas-de-classes-estrutura-relacionamentos-atribu-Fq8bUxi9VTtzjAiBQxxypK
+
+# Aula 9
+https://whimsical.com/aula-es-09-arquitetura-de-software-introducao-a-camadas-e-mvc-KgpgBBV8RN7ZJiaDgqo48N
+
+# Aula 10
+https://whimsical.com/aula-es-10-de-requisitos-a-wireframes-baixa-fidelidade-Wgh814XebntrEdtFjSxMii
+
+# Aula 11
+https://whimsical.com/aula-es-11-design-system-industrial-e-ui-components-7D1P5w19nv5TgQ51C7ozKt
