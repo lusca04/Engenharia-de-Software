@@ -31,7 +31,7 @@ python aula-08-classes/streaming_netflix.py
 
 ```bash
 git clone https://github.com/lusca04/Engenharia-de-Software.git
-cd Checkpoint-3---Engenharia-de-Software
+cd Engenharia-de-Software
 ```
 
 ---
