@@ -1,88 +1,45 @@
-# Classe usuário
-class Usuario:
+# ============================================================
+# 🚀 Cadastro de Usuário — Diagrama de Atividades
+# ============================================================
+import re
 
-    def __init__(self, nome, email, senha):
+def cadastro_usuario(email: str, senha: str, email_ja_existe: bool, confirmou_email: bool) -> str:
+    """
+    Implementação baseada no diagrama de atividades (estilo iFood).
 
-        self.nome = nome
-        self.email = email
-        self.senha = senha
-        self.ativo = False
+    Fluxo:
+    1. Validar formato do e-mail
+    2. Verificar se e-mail já está cadastrado
+    3. Criar conta
+    4. Enviar e-mail de confirmação
+    5. Aguardar confirmação do usuário
+    6. Liberar acesso OU expirar cadastro
+    """
 
+    # ── Passo 1: Validar formato do e-mail ──────────────────
+    padrao_email = r"^[\w\.-]+@[\w\.-]+\.\w{2,}$"
+    if not re.match(padrao_email, email):
+        return "E-mail inválido. Verifique o formato (ex: joao@email.com)."
 
-# sistema
-class Sistema:
+    # ── Passo 2: Verificar se e-mail já está cadastrado ─────
+    if email_ja_existe:
+        return "E-mail já cadastrado. Faça login ou recupere sua senha."
 
-    def __init__(self):
+    # ── Passo 3: Criar conta ────────────────────────────────
+    print(f"Conta criada para {email} (aguardando confirmação)...")
 
-        self.usuarios = []
+    # ── Passo 4: Enviar e-mail de confirmação ───────────────
+    print(f"E-mail de confirmação enviado para {email}.")
 
-    # cadastrar usuário
-    def cadastrar(self, nome, email, senha):
+    # ── Passo 5 + 6: Confirmação → liberar ou expirar ───────
+    if not confirmou_email:
+        return "Cadastro expirado. O link de confirmação não foi utilizado."
 
-        # verificar campos vazios
-        if nome == "" or email == "" or senha == "":
-            print("Preencha todos os campos")
-            return
-
-        # verificar email
-        if "@" not in email:
-            print("Email inválido")
-            return
-
-        # verificar senha
-        if len(senha) < 6:
-            print("Senha muito curta")
-            return
-
-        # criar usuário
-        usuario = Usuario(nome, email, senha)
-
-        self.usuarios.append(usuario)
-
-        print("Usuário cadastrado:", usuario.nome)
-
-    # aprovar usuário
-    def aprovar_usuario(self, email):
-
-        for usuario in self.usuarios:
-
-            if usuario.email == email:
-
-                usuario.ativo = True
-
-                print("Usuário aprovado:", usuario.nome)
-
-    # listar usuários
-    def listar_usuarios(self):
-
-        print("\nUSUÁRIOS")
-
-        for usuario in self.usuarios:
-
-            if usuario.ativo == True:
-                status = "Ativo"
-            else:
-                status = "Pendente"
-
-            print(usuario.nome, "-", status)
+    return f"Cadastro concluído! Bem-vindo(a), {email}."
 
 
-# sistema
-sistema = Sistema()
 
-# Cadastros
-sistema.cadastrar("Ana", "ana@email.com", "123456")
-
-sistema.cadastrar("Carlos", "carlosemail.com", "123456")
-
-sistema.cadastrar("Maria", "maria@email.com", "123")
-
-sistema.cadastrar("", "teste@email.com", "123456")
-
-# Aprovação
-print("\nAPROVAÇÃO")
-
-sistema.aprovar_usuario("ana@email.com")
-
-# Mostrar usuários
-sistema.listar_usuarios()
+# Testes (não apague!)
+print(cadastro_usuario("joao@email.com", "senha123", False, True))  
+print(cadastro_usuario("email-invalido", "senha123", False, True))   
+print(cadastro_usuario("joao@email.com", "senha123", True,  True))  
