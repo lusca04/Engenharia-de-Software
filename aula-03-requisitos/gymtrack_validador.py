@@ -45,3 +45,11 @@ if tempo_ms < 200:
     print(f"✅ [RNF01] Tempo de registro: {tempo_ms:.0f}ms ← dentro do limite!")
 else:
     print(f"❌ [RNF01] Lento demais: {tempo_ms:.0f}ms ← limite é 200ms")
+
+# REFLEXÃO:
+# 1. Qual a diferença entre RF e RNF que você percebeu na prática?
+# R-> RNF é para questoes de Fine-tuning sobre a execucao do projeto.
+# 2. O que aconteceria se esquecêssemos o RNF de performance?
+# R-> A discrepancia de utilidade varia de acordo com a necessidade e escopo do projeto.
+# 3. Cite 1 RNF que o GymTrack deveria ter mas que você não implementou
+# R -> RFN de segurança, para garantir que apenas usuários autorizados possam registrar treinos.
