@@ -1,53 +1,81 @@
-from datetime import datetime
+# ============================================================
+# 🏦 Sistema de Transferência — Diagrama de Sequência
+# Cliente → AppNubank → ServidorNubank → BancoDeDados
+# ============================================================
+
+#Célula 1 — BancoDeDados (Participante 4)
+class BancoDeDados:
+    def __init__(self):
+        # Repositório de saldos: { user_id: saldo }
+        self.saldos = {
+            "user_123": 500.0
+        }
+
+    def verificar_saldo(self, user_id: str) -> float:
+        # .get evita KeyError: retorna 0.0 se usuário não existe
+        return self.saldos.get(user_id, 0.0)
+
+    def debitar(self, user_id: str, valor: float) -> bool:
+        saldo_atual = self.verificar_saldo(user_id)
+
+        if saldo_atual >= valor:
+            self.saldos[user_id] = saldo_atual - valor
+            return True         # débito realizado
+
+        return False            # saldo insuficiente
+
+#Célula 2 — ServidorNubank (Participante 3)
+class ServidorNubank:
+    def __init__(self):
+        self.banco = BancoDeDados()   # mensagem 3 do diagrama: acessa o banco
+
+    def processar_transferencia(self, user_id: str, valor: float) -> dict:
+        """
+        Fragmento [alt] do diagrama de sequência:
+          [alt] saldo suficiente  → debita e retorna aprovado
+          [else]                  → retorna recusado
+        """
+        # Mensagem 3: processar pagamento → consulta banco
+        sucesso = self.banco.debitar(user_id, valor)
+
+        if sucesso:
+            # Mensagem 4: pagamento aprovado
+            saldo_restante = self.banco.verificar_saldo(user_id)
+            return {"status": "aprovado", "saldo_restante": saldo_restante}
+        else:
+            # Fragmento [else]: recusa com motivo
+            return {"status": "recusado", "motivo": "saldo insuficiente"}
+
+#Célula 3 — AppNubank (Participante 2)
+class AppNubank:
+    def __init__(self):
+        self.servidor = ServidorNubank()   # app conhece o servidor
+
+    def transferir(self, user_id: str, valor: float):
+        # Mensagem 1+2 do diagrama: cliente confirma pedido no app
+        print(f"[APP] Iniciando transferência de R$ {valor:.2f}...")
+
+        # Mensagem 3: app envia para o servidor processar
+        resultado = self.servidor.processar_transferencia(user_id, valor)
+
+        # Mensagens 6+7: servidor responde → app notifica o cliente
+        if resultado["status"] == "aprovado":
+            print(f"[APP] ✅ Transferência aprovada! "
+                  f"Saldo restante: R$ {resultado['saldo_restante']:.2f}")
+        else:
+            print(f"[APP] ❌ Transferência recusada: {resultado['motivo']}")
 
 
-class ContaBancaria:
-    def __init__(self, titular, banco, saldo=0):
-        self.titular = titular
-        self.banco = banco
-        self.saldo = saldo
+#Célula 4 — Testes (não altere, apenas execute)
+# Rode esta célula só depois de completar as anteriores!
+app = AppNubank()
+print("=== Teste 1: Transferência dentro do saldo ===")
 
-    def transferir(self, destino, valor):
-        print("Transferindo...")
-        # valida valor
-        if valor <= 0:
-            print("Valor inválido.")
-            return
+app.transferir("user_123", 200.0)   # Esperado: ✅ aprovado
+print("\n=== Teste 2: Transferência acima do saldo ===")
 
-        # verifica saldo
-        if self.saldo < valor:
-            print(f"Saldo insuficiente. Saldo atual: R$ {self.saldo:.2f} da conta {self.titular}. Valor solicitado: R$ {valor:.2f}.")
-            return
+app.transferir("user_123", 500.0)   # Esperado: ❌ recusado
+print("\n=== Teste 3: Múltiplas transferências ===")
 
-        # realiza transferência
-        self.saldo -= valor
-        print(f"Saldo Debitado da conta origem: R$ {self.saldo:.2f} da conta {self.titular}.")
-        destino.saldo += valor
-        print(f"Saldo Creditado na conta destino: R$ {destino.saldo:.2f} da conta {destino.titular}.")
-
-        # comprovante
-        print("\n" + "=" * 40)
-        print("TRANSFERÊNCIA REALIZADA")
-        print("=" * 40)
-
-        print(f"De      : {self.titular}")
-        print(f"Para    : {destino.titular}")
-        print(f"Banco   : {self.banco} -> {destino.banco}")
-        print(f"Valor   : R$ {valor:.2f}")
-        print(f"Data    : {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
-
-        print("=" * 40)
-
-
-# contas
-conta_joao = ContaBancaria("João Silva", "Nubank", 1500)
-conta_maria = ContaBancaria("Maria Souza", "Itaú", 200)
-
-# transferência válida
-conta_joao.transferir(conta_maria, 300)
-
-print(f"\nSaldo João : R$ {conta_joao.saldo:.2f}")
-print(f"Saldo Maria: R$ {conta_maria.saldo:.2f}")
-
-# transferência inválida
-conta_joao.transferir(conta_maria, 5000)
+app.transferir("user_123", 100.0)   # Esperado: ✅ aprovado (saldo agora 200)
+app.transferir("user_123", 250.0)   # Esperado: ❌ recusado (saldo insuficiente)
