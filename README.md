@@ -14,6 +14,7 @@ Este repositório reúne os exercícios das aulas do curso de Engenharia de Soft
 2. Execute o script Python correspondente:
 
 ```bash
+python aula-02-conversor/conversor_temperatura.py
 python aula-03-requisitos/gymtrack_validador.py
 python aula-04-srs/srs_marketplace.py
 python aula-05-casos-de-uso/biblioteca_digital.py
@@ -37,6 +38,13 @@ cd Engenharia-de-Software
 ---
 
 ## Exercícios por Aula
+
+### Aula 02 – Levantamento de Requisitos e Técnicas de Elicitação
+
+- Código: [`aula-02-conversor/conversor_temperatura.py`](aula-02-conversor/conversor_temperatura.py)
+- Saída: [`aula-02-conversor/aula02-output.png`](aula-02-conversor/aula02-output.png)
+
+Conversor de temperatura com validação de entrada e conversão entre Celsius, Fahrenheit e Kelvin, aplicando técnicas de elicitação de requisitos.
 
 ### Aula 03 – Requisitos Funcionais vs. Não-Funcionais
 
@@ -137,6 +145,7 @@ Sistema 2 — **Netflix**: `Plataforma`, `Catalogo`, `Filme`, `Usuario`, `Avalia
 |---|---|
 | 🐙 GitHub | [Engenharia-de-Software](https://github.com/lusca04/Engenharia-de-Software.git) |
 | 📌 Checkpoint 3 | [Whimsical](https://whimsical.com/checkpoint-3-engenharia-de-software-Mhe3fp7DXwvVaNtN1FZiyi) |
+| Aula 02 | [Whimsical](https://whimsical.com/aula-es-02-levantamento-de-requisitos-tecnicas-de-elicitacao-8bk2penxoukq4Tq3Bx6yi2)| 
 | Aula 03 | [Whimsical](https://whimsical.com/aula-es-03-requisitos-funcionais-vs-nao-funcionais-VeRe2FAFiQkj7bRSeUU7km) |
 | Aula 04 | [Whimsical](https://whimsical.com/aula-es-04-documento-de-especificacao-de-requisitos-de-software--YChfpWcG8f9w7qx2uC2wLH) |
 | Aula 05 | [Whimsical](https://whimsical.com/aula-es-05-introducao-a-uml-e-diagramas-de-casos-de-uso-2xASW5FbDUd4n7R1hPMdbZ) |
