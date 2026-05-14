@@ -137,10 +137,10 @@ Sistema 2 — **Netflix**: `Plataforma`, `Catalogo`, `Filme`, `Usuario`, `Avalia
 
 ### Aula 09 – Arquitetura MVC
 
-- Diagrama: [`aula-09-mvc/diagrama-mvc.png`](aula-09-mvc/diagrama-mvc.png)
+- Diagrama: [`aula-09-arquitetura/todo_mvc.png`](aula-09-arquitetura/todo_mvc.png)
+- Código: [`aula-09-arquitetura/telas-figma.png`](aula-09-arquitetura/telas-figma.png)
 
-*(em desenvolvimento)*
-
+Implementação de interface e estruturação MVC
 ---
 
 ## Links
