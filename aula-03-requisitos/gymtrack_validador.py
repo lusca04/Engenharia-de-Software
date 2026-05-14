@@ -1,49 +1,47 @@
 import time
 
-print("===================================")
-print("   GymTrack - Controle de Treino")
-print("===================================")
+print("🏋️ GymTrack — Validador de Treino")
+print("=" * 40)
 
-# Dados do treino
-exercicio = "Supino Reto"
-peso = 80
+# --- DADOS DO TREINO (mude os valores para testar!) ---
+exercicio  = "Supino Reto"
+peso_kg    = 80
 repeticoes = 10
 
-# Validar nome do exercício
+# -------------------------------------------------------
+# RF01 — O sistema deve validar o nome do exercício
+# (não pode ser vazio)
+# -------------------------------------------------------
 if exercicio != "":
-    print("Nome do exercício válido")
+    print(f"✅ [RF01] Exercício válido: '{exercicio}'")
 else:
-    print("Erro: exercício vazio")
+    print("❌ [RF01] Nome do exercício não pode ser vazio!")
 
-# Validar peso
-if peso >= 1 and peso <= 300:
-    print("Peso válido")
+# -------------------------------------------------------
+# RF02 — O peso deve estar entre 1 e 300 kg
+# -------------------------------------------------------
+if 1 <= peso_kg <= 300:
+    print(f"✅ [RF02] Peso válido: {peso_kg}kg")
 else:
-    print("Peso inválido")
+    print(f"❌ [RF02] Peso inválido: {peso_kg}kg ← deve estar entre 1 e 300kg")
 
-# Validar repetições
-if repeticoes >= 1 and repeticoes <= 50:
-    print("Repetições válidas")
+# -------------------------------------------------------
+# RF03 — As repetições devem estar entre 1 e 50
+# -------------------------------------------------------
+if 1 <= repeticoes <= 50:
+    print(f"✅ [RF03] Repetições válidas: {repeticoes}")
 else:
-    print("Quantidade de repetições inválida")
+    print(f"❌ [RF03] Repetições inválidas: {repeticoes} ← deve estar entre 1 e 50")
 
-print("-----------------------------------")
-
-# Verificar registro
+# -------------------------------------------------------
+# RNF01 — O registro deve ocorrer em menos de 200ms
+# -------------------------------------------------------
 inicio = time.time()
-
-# Simulação de cadastro
 time.sleep(0.05)
-
-print("Treino registrado")
-print(exercicio, "-", peso, "kg x", repeticoes, "repeticoes")
-
+print(f"✅ Série registrada: {exercicio} | {peso_kg}kg x {repeticoes} reps")
 fim = time.time()
-
-tempo = (fim - inicio) * 1000
-
-if tempo < 200:
-    print("Tempo de resposta OK")
-    print(f"{tempo:.2f} ms")
+tempo_ms = (fim - inicio) * 1000
+if tempo_ms < 200:
+    print(f"✅ [RNF01] Tempo de registro: {tempo_ms:.0f}ms ← dentro do limite!")
 else:
-    print("Sistema demorou muito")
+    print(f"❌ [RNF01] Lento demais: {tempo_ms:.0f}ms ← limite é 200ms")
